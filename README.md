@@ -1,7 +1,7 @@
 # Markowitz Portfolio Optimization
 
 ## Description
-This is a small project that serves as an intor to the basics of the Markowitz Portfolio Optimization Method by visualizing the 'Efficient Frontier'.
+This is a small project that serves as an intro to the basics of the Markowitz Portfolio Optimization Method by visualizing the 'Efficient Frontier'.
 
 ## How to use
 The file structure for this is very simple. The whole program is contained in the file **pyOpt.py**. In there you will find a couple of helper function definitions as well as the main programm. There is a designated variable that allows you to select the tickers of the stock investments you want to include in your portfolio and you can also change the time period of interest. 
