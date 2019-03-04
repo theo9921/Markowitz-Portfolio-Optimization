@@ -1,0 +1,2 @@
+## About this Folder
+This folder is reserved to store the scraped data locally for faster access. You are free to store other files in here but be cautious with the naming in case they are .csv files as they may get deleted or replaced by the program.
