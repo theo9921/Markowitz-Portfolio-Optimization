@@ -20,6 +20,6 @@ Finally the directory **/stock_dfs** is used to locally store all the price data
 
 ## Packages needed
 The following packages are required for the project to run:
-*pandas
-*numpy
-*matplotlib
+* pandas
+* numpy
+* matplotlib
