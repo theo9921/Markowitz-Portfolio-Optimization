@@ -10,13 +10,13 @@ Finally the directory **/stock_dfs** is used to locally store all the price data
 ## How to run
 1. Copy the link for this Gihub repository and then navigate to the directory in which you want to store a copy of this project
 2. On a UNIX terminal (or Git terminal) navigate to the directory of interest and run the following command:
-    '''
+    ```
     git clone <link of the repository>
-    '''
+    ```
 3. Once the process is done you can either open the pyOpt.py file to edit the parameters or you can run the program by executing the command:
-    '''
+    ```
     python3 ./pyOpt.py
-    '''
+    ```
 
 ## Packages needed
 The following packages are required for the project to run:
