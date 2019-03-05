@@ -19,7 +19,7 @@ def progressbar(it, prefix="", size=60, file=sys.stdout):
     count = len(it)
     def show(j):
         x = int(size*j/count)
-        file.write("%s[%s%s] %i/%i\r" % (prefix, "#"*x, "."*(size-x), j, count))
+        file.write("%s[%s%s] %i/%i - %.1f%%\r" % (prefix, "#"*x, "."*(size-x), j, count, 100*j/count))
         file.flush()        
     show(0)
     for i, item in enumerate(it):
@@ -34,8 +34,8 @@ def get_data_from_yahoo(tickers, startDate, endDate):
     if not os.path.exists('./stock_dfs'):
         os.makedirs('./stock_dfs')
 
-    # save data for the first 20 listed companies
-    for ticker in progressbar(tickers, "Progress: "):
+    # save data for the listed companies
+    for ticker in progressbar(tickers, "Downloading Data: "):
         #if the file does not exist create it
         if not os.path.exists('./stock_dfs/{}.csv'.format(ticker)):
             df = web.DataReader(ticker, 'yahoo', startDate, endDate)
@@ -50,7 +50,7 @@ def get_data_from_yahoo(tickers, startDate, endDate):
 #function to compile data in usable form
 def compile_data(tickers):
     main_df = pd.DataFrame()
-    for count, ticker in enumerate(tickers):
+    for ticker in tickers:
         df = pd.read_csv('./stock_dfs/{}.csv'.format(ticker))
         df.drop(['Open', 'High', 'Low', 'Close', 'Volume'], 1, inplace=True)
         df['Ticker']=ticker
@@ -63,12 +63,12 @@ def compile_data(tickers):
 
 
 #select tickers that comprise our portfolio investment
-portfolioTickers = ['GS', 'F', 'MSFT', 'GE', 'TSLA']
+portfolioTickers = ['TSLA', 'F', 'BAC', 'GE', 'GOOGL']
 
 #select start and end dates for our data 
 #period relative to today
 endDate = dt.datetime.now().strftime("%Y-%m-%d")
-startDate = (dt.datetime.now() + relativedelta(years=-3)).strftime("%Y-%m-%d")
+startDate = (dt.datetime.now() + relativedelta(years=-5)).strftime("%Y-%m-%d")
 
 #custom period
 # endDate = '2016-12-31'
